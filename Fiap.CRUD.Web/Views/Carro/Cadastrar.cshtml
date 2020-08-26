@@ -1,0 +1,12 @@
+﻿@model Carro
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<h2>Cadastrar Carro</h2>
+
+<form asp-action="Cadastrar" asp-controller="Carro">
+    <partial name="_form" /> <!-- Carrega o arquivo _Form.cshtml -->
+    <input type="submit" value="Cadastrar" class="btn btn-outline-primary" />
+</form>
+

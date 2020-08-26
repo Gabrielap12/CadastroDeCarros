@@ -1,0 +1,68 @@
+﻿@model IList<Carro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>Codigo</th>
+        <th>Modelo</th>
+        <th>Marca</th>
+        <th>Ano</th>
+        <th>Data de Fabricacao</th>
+        <th>Combustivel</th>
+        <th>Valor</th>
+        <th>Novo</th>
+        <th>Editar/Excluir</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Codigo</td>
+            <td>@item.Modelo</td>
+            <td>@item.Marca</td>
+            <td>@item.Ano</td>
+            <td>@item.DataFabricacao.ToShortDateString()</td>
+            <td>@item.Combustivel</td>
+            <td>@item.Valor</td>
+            <td>@(item.Novo?"Sim": "Nao")</td>
+
+            <td>
+                <a asp-route-id="@item.Codigo" asp-action="editar" class="btn btn-sm btn-outline-primary">Editar</a>
+
+                <!-- Excluir um livro -->
+                <button onclick="livroId.value = @item.Codigo" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                    Excluir
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Exclusao de item</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">Confirmacao</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente excluir?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="remover" asp-controller="carro">
+                    <input type="hidden" name="id" id="livroId" />
+                    <button type="submit" class="btn btn-secondary" data-dismiss="modal">Nao</button>
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
