@@ -64,12 +64,12 @@ using Fiap.CRUD.Web.Models;
             WriteLiteral("\r\n<h2>Cadastrar Carro</h2>\r\n\r\n");
             EndContext();
             BeginContext(89, 210, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea4039ac96bc4e04bc44d84893c521d2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c2ed15cf67c4932b7f4442840b72278", async() => {
                 BeginContext(141, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(147, 24, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b945f68667424a00aebd8ed1c11b2ae1", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ab066f69f1224bfe8cb996b48770610e", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

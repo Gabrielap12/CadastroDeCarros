@@ -20,30 +20,31 @@ namespace Fiap.CRUD.Web.Controllers
         [HttpPost]
         public IActionResult Remover(int id)
         {
-            //Substituir o livro na lista (Pesquisa a posicao do livro, depois substitui com o novo livro)
+            //remove o carro na lista (Pesquisa a posicao do carro)
             _banco.RemoveAt(_banco.FindIndex(c => c.Codigo == id));
 
             //Mensagem de Sucesso
             TempData["msg"] = "Carro removido!";
 
-            return RedirectToAction("Index"); //envia o livro para a view
+            return RedirectToAction("Index"); //envia o carro para a view
         }
 
         [HttpPost]
         public IActionResult Editar(Carro carro)
         {
-            //Substituir o livro na lista (Pesquisa a posicao do livro, depois substitui com o novo livro)
+            //Substitui o carro na lista (Pesquisa a posicao do carro, depois substitui com o novo carro)
             _banco[_banco.FindIndex(c => c.Codigo == carro.Codigo)] = carro;
 
             //Mensagem de Sucesso
             TempData["msg"] = "Carro editado com sucesso";
 
-            return RedirectToAction("Index"); //envia o livro para a view
+            return RedirectToAction("Index"); //envia o carro para a view
         }
 
-        [HttpGet] //Resposavel o que vai ser mostrado quando carregar a tela
+        [HttpGet]
         public IActionResult Editar(int id)
         {
+            //Metodo para trazer os dados da atributo Marca no formulario
             ListaDeMarcas();
 
             //Pesquisa na colecao o livro com o codigo informado
@@ -52,10 +53,11 @@ namespace Fiap.CRUD.Web.Controllers
             return View(carro);
         }
 
-        [HttpGet] //Resposavel o que vai ser mostrado quando carregar a tela
+        [HttpGet] 
         public IActionResult Cadastrar()
         {
-            ListaDeMarcas(); //Chamando o metodo para carregar as informacoes no formulario
+            //Metodo para trazer os dados da atributo Marca no formulario
+            ListaDeMarcas();
 
             return View();
         }
