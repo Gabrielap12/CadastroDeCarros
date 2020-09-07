@@ -4,7 +4,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+
+
+<div class="container text-md-left">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Index</h2>
+        </div>
+        <div class="col-md-4" style="margin-top: 1.9rem;">
+            <form asp-action="remover" asp-controller="carro" class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Coloque um ID" aria-label="Pesquisar" id="IdPesquisa">
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="IdPesquisa1.value = IdPesquisa.value">Pesquisar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <table class="table">
     <tr>
@@ -21,27 +36,33 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.Codigo</td>
-            <td>@item.Modelo</td>
-            <td>@item.Marca</td>
-            <td>@item.Ano</td>
-            <td>@item.DataFabricacao.ToShortDateString()</td>
-            <td>@item.Combustivel</td>
-            <td>@item.Valor</td>
-            <td>@(item.Novo?"Sim": "Nao")</td>
+        if (item.Codigo == IdPesquisa.value)
+        {
+            <tr>
+                <td>@item.Codigo</td>
+                <td>@item.Modelo</td>
+                <td>@item.Marca</td>
+                <td>@item.Ano</td>
+                <td>@item.DataFabricacao.ToShortDateString()</td>
+                <td>@item.Combustivel</td>
+                <td>@item.Valor</td>
+                <td>@(item.Novo ? "Sim" : "Nao")</td>
 
-            <td>
-                <a asp-route-id="@item.Codigo" asp-action="editar" class="btn btn-sm btn-outline-primary">Editar</a>
+                <td>
+                    <a asp-route-id="@item.Codigo" asp-action="editar" class="btn btn-sm btn-outline-primary">Editar</a>
 
-                <!-- Excluir um livro -->
-                <button onclick="livroId.value = @item.Codigo" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
-                    Excluir
-                </button>
-            </td>
-        </tr>
+                    <!-- Excluir um livro -->
+                    <button onclick="carroId.value = @item.Codigo" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                        Excluir
+                    </button>
+                </td>
+            </tr>
+        }
+
     }
 </table>
+
+
 
 <!-- Modal de exclusao de item -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -58,7 +79,7 @@
             </div>
             <div class="modal-footer">
                 <form asp-action="remover" asp-controller="carro">
-                    <input type="hidden" name="id" id="livroId" />
+                    <input type="hidden" name="id" id="carroId" />
                     <button type="submit" class="btn btn-secondary" data-dismiss="modal">Nao</button>
                     <button type="submit" class="btn btn-danger">Sim</button>
                 </form>
@@ -66,3 +87,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    function ResgataIDPesquisa() {
+        let batata = "fgED"
+    }
+</script>

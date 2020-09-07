@@ -12535,11 +12535,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Faculdade - FIAP\\2020\\2 Semestre\\Aula Segunda\\10 - 08\\Fiap.CRUD.Web\\Fiap.CRUD.Web\\Fiap.CRUD.Web.csproj",
+      "projectUniqueName": "E:\\Faculdade - FIAP\\2020\\2 Semestre\\Aula Segunda\\10 - 08\\Fiap.CRUD.Web\\CadastroDeCarros\\Fiap.CRUD.Web\\Fiap.CRUD.Web.csproj",
       "projectName": "Fiap.CRUD.Web",
-      "projectPath": "E:\\Faculdade - FIAP\\2020\\2 Semestre\\Aula Segunda\\10 - 08\\Fiap.CRUD.Web\\Fiap.CRUD.Web\\Fiap.CRUD.Web.csproj",
+      "projectPath": "E:\\Faculdade - FIAP\\2020\\2 Semestre\\Aula Segunda\\10 - 08\\Fiap.CRUD.Web\\CadastroDeCarros\\Fiap.CRUD.Web\\Fiap.CRUD.Web.csproj",
       "packagesPath": "C:\\Users\\gabriel.alves\\.nuget\\packages\\",
-      "outputPath": "E:\\Faculdade - FIAP\\2020\\2 Semestre\\Aula Segunda\\10 - 08\\Fiap.CRUD.Web\\Fiap.CRUD.Web\\obj\\",
+      "outputPath": "E:\\Faculdade - FIAP\\2020\\2 Semestre\\Aula Segunda\\10 - 08\\Fiap.CRUD.Web\\CadastroDeCarros\\Fiap.CRUD.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -24,7 +24,8 @@ namespace Fiap.CRUD.Web.Controllers
             _banco.RemoveAt(_banco.FindIndex(c => c.Codigo == id));
 
             //Mensagem de Sucesso
-            TempData["msg"] = "Carro removido!";
+            //ViewData["msgCarro"] = "Carro excluido com sucesso!";
+            TempData["msg"] = "Carro excluido com sucesso!";
 
             return RedirectToAction("Index"); //envia o carro para a view
         }
@@ -36,7 +37,7 @@ namespace Fiap.CRUD.Web.Controllers
             _banco[_banco.FindIndex(c => c.Codigo == carro.Codigo)] = carro;
 
             //Mensagem de Sucesso
-            TempData["msg"] = "Carro editado com sucesso";
+            ViewData["msgCarro"] = carro.Modelo + " Editado com sucesso!";
 
             return RedirectToAction("Index"); //envia o carro para a view
         }
@@ -52,6 +53,26 @@ namespace Fiap.CRUD.Web.Controllers
 
             return View(carro);
         }
+
+        [HttpPost]
+        public IActionResult Pesquisar(Carro carro)
+        {
+            //Metodo para trazer os dados da atributo Marca no formulario
+            ListaDeMarcas();
+
+            //Pesquisa na colecao o livro com o codigo informado
+            // var carro = _banco.Find(li => li.Codigo == id);
+
+            return View(carro);
+        }
+
+        public IActionResult Search()
+        {
+            ViewData["Message"] = "Search page.";
+            
+            return View(_banco);
+        }
+
 
         [HttpGet] 
         public IActionResult Cadastrar()
@@ -74,6 +95,7 @@ namespace Fiap.CRUD.Web.Controllers
 
         }
 
+
         [HttpPost]
         public IActionResult Cadastrar(Carro carro)
         {
@@ -90,8 +112,10 @@ namespace Fiap.CRUD.Web.Controllers
                 carro.Codigo = 1;
             }
             _banco.Add(carro); // Adiciona no "banco"
-            TempData["msg"] = "Livro registrado!";
-            return RedirectToAction("Cadastrar");
+
+            ViewData["msgCarro"] = carro.Modelo + " Cadastrado com sucesso!";
+    
+            return View("Cadastrar");
         }
     }
 }

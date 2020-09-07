@@ -1,9 +1,16 @@
 ﻿@model Carro
+
 @{
     ViewData["Title"] = "Cadastrar";
 }
 
 <h2>Cadastrar Carro</h2>
+
+@if(ViewData["msgCarro"] != null)
+{
+<p class="alert alert-success" id="successMessage">@ViewData["msgCarro"]</p>
+}
+
 
 <form asp-action="Cadastrar" asp-controller="Carro">
     <partial name="_form" /> <!-- Carrega o arquivo _Form.cshtml -->

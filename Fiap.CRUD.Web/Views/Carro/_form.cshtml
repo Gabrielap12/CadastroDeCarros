@@ -16,12 +16,12 @@
 
 <div class="form-group">
     <label asp-for="Ano">Ano</label>
-    <input asp-for="Ano" class="form-control" />
+    <input asp-for="Ano" class="form-control" value="Ano" id="ano" readonly/>
 </div>
 
 <div class="form-group">
     <label asp-for="DataFabricacao">DataFabricacao</label>
-    <input asp-for="DataFabricacao" class="form-control"/>
+    <input asp-for="DataFabricacao" class="form-control" onblur="GeraAno()" id="DataFabricacao"/>
 </div>
 
 <div class="form-group">
@@ -43,3 +43,13 @@
 
 
 
+<script>
+    //Funcao onblur para gerar o valor do input ano
+    function GeraAno() {
+        let Data = document.getElementById("DataFabricacao").value;
+
+        document.getElementById("ano").value = Data.toString().substring(4, 0);
+
+        console.log(Data.toString().substring(4, 0))
+    }
+</script>

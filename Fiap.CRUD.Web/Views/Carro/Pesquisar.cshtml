@@ -1,0 +1,17 @@
+﻿@model Carro 
+
+
+    @{
+        ViewData["Title"] = "Pesquisar";
+    }
+
+    <h2>Pesquisar</h2>
+
+    <form method="GET" asp-action="Pesquisar" asp-controller="Carro">
+        <div class="form-group">
+            <label asp-for="Codigo">Insira o ID</label>
+            <input asp-for="Codigo" class="form-control" placeholder="Digite O ID referente ao carro que queira" />
+        </div>
+        <input type="submit" value="Cadastrar" class="btn btn-outline-primary" />
+    </form>
+
